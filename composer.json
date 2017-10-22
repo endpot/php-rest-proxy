@@ -3,10 +3,10 @@
     "description": "A php rest proxy script based on guzzle",
     "type": "library",
     "require": {
-        "guzzlehttp/guzzle": "6.0"
+        "guzzlehttp/guzzle": "^6.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "5.0"
+        "phpunit/phpunit": "^5.0"
     },
     "license": "MIT",
     "authors": [
