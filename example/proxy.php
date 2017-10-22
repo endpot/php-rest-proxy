@@ -5,23 +5,19 @@
  * Date: 2017/10/22
  * Time: 16:22
  */
-namespace Example;
-
-use Proxy\Middleware\BasicMiddleware;
-use Proxy\Middleware\ExampleMiddleware;
-use Proxy\Proxy;
+require "vendor/autoload.php";
 
 // create proxy instance
-$proxy = new Proxy();
+$proxy = new \Proxy\Proxy();
 
 // an array contains the most common rest method
 $targetUrlArray = [
-    'GET' => 'https://httpbin.org/get',
-    'POST' => 'https://httpbin.org/post',
-    'PUT' => 'https://httpbin.org/put',
-    'DELETE' => 'https://httpbin.org/delete',
-    'OPTIONS' => 'https://httpbin.org/options',
-    'HEAD' => 'https://httpbin.org/head'
+    'GET' => 'http://httpbin.org/get',
+    'POST' => 'http://httpbin.org/post',
+    'PUT' => 'http://httpbin.org/put',
+    'DELETE' => 'http://httpbin.org/delete',
+    'OPTIONS' => 'http://httpbin.org/options',
+    'HEAD' => 'http://httpbin.org/head'
 ];
 // create psr7 request based on the global parameters
 $request = $proxy->fromGlobals();

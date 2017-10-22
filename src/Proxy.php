@@ -55,7 +55,11 @@ class Proxy
         $this->proxyClient = new Client(['handler' => $this->handleStack]);
 
         // Forward the request and get the response.
-        $this->response = $this->proxyClient->send($this->request, $this->options);
+        if ($this->options) {
+            $this->response = $this->proxyClient->send($this->request, $this->options);
+        } else {
+            $this->response = $this->proxyClient->send($this->request);
+        }
 
         return $this->response;
     }
@@ -123,7 +127,7 @@ class Proxy
         // if Method is POST and Content-Type is multipart/form-data
         // Make new stream with $_POST and $_FILES
         $contentType = $request->getHeader('Content-Type');
-        $contentType = empty($contentType) ? $contentType : $contentType[0];
+        $contentType = empty($contentType) ? '' : $contentType[0];
         if (strpos($contentType, 'multipart/form-data') !== false && $request->getMethod() == 'POST') {
             // Make multipart stream
             $elements = array();
